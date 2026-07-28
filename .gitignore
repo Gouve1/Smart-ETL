@@ -1,0 +1,22 @@
+# Secrets & Environment
+.env
+*.env
+!.env.example
+
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Databases & Local Data
+*.sqlite3
+data/raw/*
+!data/raw/.gitkeep
+
+# IDEs & System
+.vscode/
+.DS_Store
