@@ -49,7 +49,7 @@ def extract_amazon_eu(query="Mechanical Keyboard"):
         extracted = []
         products = data.get("data", {}).get("products", [])
         
-        for item in products[:5]: 
+        for item in products[:25]: 
             price_raw = item.get("product_price") or "0"
             clean_price = float(price_raw.replace("€", "").replace("$", "").replace(",", "").strip() or 0.0)
             
@@ -94,7 +94,7 @@ def extract_aliexpress_eu(query="Mechanical Keyboard"):
 
     params = {
         "keyWord": query,
-        "pageSize": "10",
+        "pageSize": "25",
         "pageIndex": "1",
         "country": "DE",
         "currency": "EUR",
@@ -111,7 +111,7 @@ def extract_aliexpress_eu(query="Mechanical Keyboard"):
         items = data.get("data", {}).get("itemList", [])
         extracted = []
 
-        for item in items[:5]:
+        for item in items[:25]:
             item_id = item.get("itemId")
             title = item.get("title")
             
