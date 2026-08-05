@@ -1,14 +1,109 @@
 {
-  "master_brands": [
-    "Logitech", "Razer", "Corsair", "Redragon", "Keychron", 
-    "SteelSeries", "HyperX", "Epomaker", "Royal Kludge", "RK",
-    "Ducky", "Varmilo", "Glorious", "Akko", "Attack Shark", "ASUS", "MSI",
-    "AULA", "Ajazz", "Wooting", "MonsGeek", "Yunzii", "Zuoya", "CIDOO", "FL-Esports","8BitDo","Koorui","Newmen"
-  ],
-  "category_stopwords": [
-    "teclado", "keyboard", "tastatur", "mechanische", "mechanical", "mecanico",
-    "gaming", "rgb", "wired", "wireless", "kabelgebundene", "schalter",
-    "switches", "tasten", "led", "backlit", "mini", "bluetooth", "usb",
-    "gasket", "knob", "hot", "swap", "swappable", "custom"
-  ]
+  "brands": {
+    "Redragon": [
+      "redragon",
+      "re dragon",
+      "redragon gaming"
+    ],
+    "Keychron": [
+      "keychron",
+      "keychron gaming",
+      "key chron"
+    ],
+    "Epomaker": [
+      "epomaker",
+      "epo maker"
+    ],
+    "Akko": [
+      "akko",
+      "akko gear",
+      "monsgeek"
+    ],
+    "Logitech": [
+      "logitech",
+      "logi",
+      "logitech g",
+      "logitechg"
+    ],
+    "Razer": [
+      "razer",
+      "razer gaming"
+    ],
+    "SteelSeries": [
+      "steelseries",
+      "steel series",
+      "steelseries gaming"
+    ],
+    "Corsair": [
+      "corsair",
+      "corsair gaming"
+    ],
+    "HyperX": [
+      "hyperx",
+      "hyper x",
+      "kingston hyperx"
+    ],
+    "ASUS": [
+      "asus",
+      "asus rog",
+      "rog",
+      "republic of gamers",
+      "asus tuf",
+      "tuf gaming"
+    ],
+    "Glorious": [
+      "glorious",
+      "glorious pc gaming race",
+      "glorious gaming"
+    ],
+    "Royal Kludge": [
+      "royal kludge",
+      "rk",
+      "rk royal kludge"
+    ],
+    "Ajazz": [
+      "ajazz",
+      "a jazz"
+    ],
+    "AULA": [
+      "aula",
+      "aula gaming"
+    ],
+    "DrunkDeer": [
+      "drunkdeer",
+      "drunk deer"
+    ],
+    "Wooting": [
+      "wooting",
+      "wooting keyboards"
+    ],
+    "VGN / VXE": [
+      "vgn",
+      "vxe",
+      "vgn/vxe"
+    ],
+    "Attack Shark": [
+      "attack shark",
+      "attackshark"
+    ],
+    "Darmoshark": [
+      "darmoshark",
+      "darmo shark"
+    ],
+    "FL-ESPORTS": [
+      "fl-esports",
+      "flesports",
+      "fl esports"
+    ],
+    "Yunzii": [
+      "yunzii"
+    ],
+    "Machenike": [
+      "machenike"
+    ],
+    "Thunderobot": [
+      "thunderobot"
+    ],
+    "OEM / Unbranded": []
+  }
 }
