@@ -30,3 +30,23 @@
 2026-08-05 10:35:45,378 [INFO] ETL_Transform: Iniciando transformação avançada de 36 registros brutos...
 2026-08-05 10:35:45,381 [INFO] ETL_Transform: Transformação concluída: 36 validados | 0 descartados.
 2026-08-05 10:35:45,382 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/processed/processed_products_20260805_103545.json
+2026-08-05 10:53:04,711 [INFO] ETL_Transform: Lendo dados brutos de: /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/raw/raw_products_20260731_174955.json
+2026-08-05 10:53:04,711 [INFO] ETL_Transform: Iniciando transformação avançada de 36 registros brutos...
+2026-08-05 10:53:04,711 [INFO] ETL_Transform: Transformação concluída: 36 validados | 0 descartados.
+2026-08-05 10:53:04,712 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/processed/processed_products_20260805_105304.json
+2026-08-05 11:51:15,490 [INFO] ETL_Transform: Taxonomia carregada: 16 marcas mestras | 19 stopwords.
+2026-08-05 11:51:15,491 [INFO] ETL_Transform: Lendo dados brutos de: /home/pedro-pc/Prog/Projects/smart-etl/data/raw/raw_products_20260731_174955.json
+2026-08-05 11:51:15,491 [INFO] ETL_Transform: Iniciando transformação avançada de 36 registros brutos...
+2026-08-05 11:51:15,492 [INFO] ETL_Transform: Transformação concluída: 36 validados | 0 descartados.
+2026-08-05 11:51:15,492 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260805_115115.json
+2026-08-05 11:54:10,882 [INFO] ETL_Transform: Taxonomia carregada: 25 marcas mestras | 25 stopwords.
+2026-08-05 11:54:10,882 [INFO] ETL_Transform: Lendo dados brutos de: /home/pedro-pc/Prog/Projects/smart-etl/data/raw/raw_products_20260731_174955.json
+2026-08-05 11:54:10,882 [INFO] ETL_Transform: Iniciando transformação avançada de 36 registros brutos...
+2026-08-05 11:54:10,884 [INFO] ETL_Transform: Transformação concluída: 36 validados | 0 descartados.
+2026-08-05 11:54:10,884 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260805_115410.json
+2026-08-05 11:59:34,879 [INFO] ETL_Transform: Processando o arquivo mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/raw/raw_products_20260731_174955.json
+2026-08-05 11:59:34,880 [INFO] ETL_Transform: Iniciando transformação de 36 itens...
+2026-08-05 11:59:34,881 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260805_115934.json
+2026-08-05 12:01:50,349 [INFO] ETL_Transform: Processando o arquivo mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/raw/raw_products_20260731_174955.json
+2026-08-05 12:01:50,349 [INFO] ETL_Transform: Iniciando transformação de 36 itens...
+2026-08-05 12:01:50,350 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260805_120150.json

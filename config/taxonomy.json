@@ -1,0 +1,14 @@
+{
+  "master_brands": [
+    "Logitech", "Razer", "Corsair", "Redragon", "Keychron", 
+    "SteelSeries", "HyperX", "Epomaker", "Royal Kludge", "RK",
+    "Ducky", "Varmilo", "Glorious", "Akko", "Attack Shark", "ASUS", "MSI",
+    "AULA", "Ajazz", "Wooting", "MonsGeek", "Yunzii", "Zuoya", "CIDOO", "FL-Esports","8BitDo","Koorui","Newmen"
+  ],
+  "category_stopwords": [
+    "teclado", "keyboard", "tastatur", "mechanische", "mechanical", "mecanico",
+    "gaming", "rgb", "wired", "wireless", "kabelgebundene", "schalter",
+    "switches", "tasten", "led", "backlit", "mini", "bluetooth", "usb",
+    "gasket", "knob", "hot", "swap", "swappable", "custom"
+  ]
+}
