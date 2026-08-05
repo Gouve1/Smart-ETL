@@ -50,3 +50,10 @@
 2026-08-05 12:01:50,349 [INFO] ETL_Transform: Processando o arquivo mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/raw/raw_products_20260731_174955.json
 2026-08-05 12:01:50,349 [INFO] ETL_Transform: Iniciando transformação de 36 itens...
 2026-08-05 12:01:50,350 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260805_120150.json
+2026-08-05 13:19:22,202 [INFO] ETL_Config: Conexão com o PostgreSQL realizada com sucesso!
+2026-08-05 13:19:38,284 [INFO] ETL_Config: Lendo o arquivo processado mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260805_131025.json
+2026-08-05 13:19:38,320 [INFO] ETL_Config: Schema do banco verificado/criado com sucesso.
+2026-08-05 13:19:38,339 [INFO] ETL_Config: Sucesso! 36 produtos upsertados no PostgreSQL.
+2026-08-05 13:24:49,174 [INFO] ETL_Config: Lendo o arquivo processado mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260805_131025.json
+2026-08-05 13:24:49,201 [INFO] ETL_Config: Schema do banco verificado/criado com sucesso.
+2026-08-05 13:24:49,217 [INFO] ETL_Config: Sucesso! 36 produtos upsertados no PostgreSQL.
