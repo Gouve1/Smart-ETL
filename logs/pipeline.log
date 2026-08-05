@@ -22,3 +22,11 @@
 2026-07-31 17:49:52,413 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' no AliExpress DE (Ao vivo)...
 2026-07-31 17:49:55,389 [INFO] ETL_Extract: AliExpress: 20 produtos reais extraídos com sucesso.
 2026-07-31 17:49:55,391 [INFO] ETL_Extract: Snapshot salvo em /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/raw/raw_products_20260731_174955.json com 36 registros no total.
+2026-07-31 18:08:30,896 [INFO] ETL_Transform: Lendo dados brutos de: /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/raw/raw_products_20260731_174955.json
+2026-07-31 18:08:30,896 [INFO] ETL_Transform: Iniciando transformação de 36 registros brutos...
+2026-07-31 18:08:30,897 [INFO] ETL_Transform: Transformação concluída: 36 validados | 0 descartados.
+2026-07-31 18:08:30,897 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/processed/processed_products_20260731_180830.json
+2026-08-05 10:35:45,377 [INFO] ETL_Transform: Lendo dados brutos de: /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/raw/raw_products_20260731_174955.json
+2026-08-05 10:35:45,378 [INFO] ETL_Transform: Iniciando transformação avançada de 36 registros brutos...
+2026-08-05 10:35:45,381 [INFO] ETL_Transform: Transformação concluída: 36 validados | 0 descartados.
+2026-08-05 10:35:45,382 [INFO] ETL_Transform: Dados salvos com sucesso em: /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/processed/processed_products_20260805_103545.json
