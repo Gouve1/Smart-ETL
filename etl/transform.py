@@ -110,6 +110,7 @@ class ProductTransformer:
         ).strip()
         source = str(item.get("source", "unknown")).lower()
         source_id = str(item.get("source_id", ""))
+        category = str(item.get("category", "Unassigned")).strip()
 
         try:
             price = self._clean_price(float(item.get("price", 0.0)), source)
@@ -133,6 +134,7 @@ class ProductTransformer:
             "source_id": source_id,
             "title": raw_title,
             "brand": extracted_brand or "OEM / Unbranded",
+            "category": category,
             "price_eur": price,
             "currency": item.get("currency", "EUR"),
             "stock_status": item.get("stock_status", "UNKNOWN"),

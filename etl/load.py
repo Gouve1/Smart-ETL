@@ -22,6 +22,7 @@ class Product(Base):
     source_id = Column(String(128), nullable=True)
     title = Column(Text, nullable=False)
     brand = Column(String(64), nullable=False, index=True)
+    category = Column(string(64),nullable=False,default="Unassigned",index=True)
     price_eur = Column(Numeric(10, 2), nullable=False)
     currency = Column(String(8), default="EUR")
     stock_status = Column(String(32), default="UNKNOWN")
@@ -46,6 +47,7 @@ def upsert_products(session, products_data: List[Dict[str, Any]]) -> int:
     update_cols = {
         "title": stmt.excluded.title,
         "brand": stmt.excluded.brand,
+        "category": stmt.excluded.category,
         "price_eur": stmt.excluded.price_eur,
         "currency": stmt.excluded.currency,
         "stock_status": stmt.excluded.stock_status,

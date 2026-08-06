@@ -29,12 +29,19 @@ HEADERS = {
     "X-RapidAPI-Host": ""
 }
 
-def extract_amazon_eu(query="Mechanical Keyboard"):
+# Configuração centralizada de categorias e termos de busca para controlar o consumo da API
+TARGET_CATEGORIES = {
+    "Keyboard": ["Mechanical Keyboard"],
+    "Mouse": ["Gaming Mouse"],
+    "Monitor": ["Gaming Monitor"]
+}
+
+def extract_amazon_eu(query="Mechanical Keyboard", category="Keyboard"):
     if not RAPIDAPI_KEY:
         logger.error("RAPIDAPI_KEY não encontrada no arquivo .env!")
         return []
 
-    logger.info(f"Buscando '{query}' na Amazon EU via RapidAPI...")
+    logger.info(f"Buscando '{query}' (Categoria: {category}) na Amazon EU via RapidAPI...")
     url = "https://real-time-amazon-data.p.rapidapi.com/search"
     
     headers = HEADERS.copy()
@@ -49,7 +56,8 @@ def extract_amazon_eu(query="Mechanical Keyboard"):
         extracted = []
         products = data.get("data", {}).get("products", [])
         
-        for item in products[:25]: 
+        # Aproveita o lote completo retornado pela API sem cortes arbitrais restritos
+        for item in products: 
             price_raw = item.get("product_price") or "0"
             clean_price = float(price_raw.replace("€", "").replace("$", "").replace(",", "").strip() or 0.0)
             
@@ -57,44 +65,41 @@ def extract_amazon_eu(query="Mechanical Keyboard"):
                 "source": "amazon",
                 "source_id": item.get("asin"),
                 "title": item.get("product_title"),
-                "price": clean_price, # Será normalizado (/100) no transform.py
+                "category": category,  # Categoria injetada explicitamente
+                "price": clean_price,
                 "currency": "EUR",
                 "seller_name": "Amazon Merchant",
                 "seller_rating": float(item.get("product_star_rating") or 0.0),
                 "stock_status": "In Stock" if not item.get("is_out_of_stock") else "Out of Stock",
                 "extracted_at": datetime.now(timezone.utc).isoformat()
             })
-        logger.info(f"Amazon EU: {len(extracted)} itens obtidos com sucesso.")
+        logger.info(f"Amazon EU ({category}): {len(extracted)} itens obtidos.")
         return extracted
 
     except requests.exceptions.RequestException as e:
-        logger.error(f"Falha na requisição da Amazon: {e}")
+        logger.error(f"Falha na requisição da Amazon para {query}: {e}")
         return []
 
-def extract_aliexpress_eu(query="Mechanical Keyboard"):
-    """
-    Extrai produtos do AliExpress DE usando a AliExpress Business API via RapidAPI.
-    """
+def extract_aliexpress_eu(query="Mechanical Keyboard", category="Keyboard"):
     if not RAPIDAPI_KEY:
         logger.error("RAPIDAPI_KEY não encontrada no arquivo .env!")
         return []
 
-    logger.info(f"Buscando '{query}' no AliExpress DE (Ao vivo)...")
+    logger.info(f"Buscando '{query}' (Categoria: {category}) no AliExpress DE...")
     url = "https://aliexpress-business-api.p.rapidapi.com/textsearch.php"
     
-    # Headers completos validados via engenharia reversa do console RapidAPI
     headers = {
         "accept": "application/json",
         "rapid-client": "hub-service",
         "x-rapidapi-host": "aliexpress-business-api.p.rapidapi.com",
         "x-rapidapi-key": RAPIDAPI_KEY,
         "x-rapidapi-ua": "RapidAPI-Playground",
-        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
     }
 
     params = {
         "keyWord": query,
-        "pageSize": "25",
+        "pageSize": "50",  # Maximizando o volume por requisição dentro do permitido
         "pageIndex": "1",
         "country": "DE",
         "currency": "EUR",
@@ -111,11 +116,10 @@ def extract_aliexpress_eu(query="Mechanical Keyboard"):
         items = data.get("data", {}).get("itemList", [])
         extracted = []
 
-        for item in items[:25]:
+        for item in items:
             item_id = item.get("itemId")
             title = item.get("title")
             
-            # Captura de preço dinâmico em EUR (prioriza targetSalePrice ou salePrice)
             price_val = (
                 item.get("targetSalePrice") or 
                 item.get("salePrice") or 
@@ -130,6 +134,7 @@ def extract_aliexpress_eu(query="Mechanical Keyboard"):
                     "source": "aliexpress",
                     "source_id": str(item_id),
                     "title": str(title).strip(),
+                    "category": category,  # Categoria injetada explicitamente
                     "price": float(price_val),
                     "currency": "EUR",
                     "seller_name": "AliExpress Merchant",
@@ -138,19 +143,32 @@ def extract_aliexpress_eu(query="Mechanical Keyboard"):
                     "extracted_at": datetime.now(timezone.utc).isoformat()
                 })
             
-        logger.info(f"AliExpress: {len(extracted)} produtos reais extraídos com sucesso.")
+        logger.info(f"AliExpress ({category}): {len(extracted)} produtos obtidos.")
         return extracted
 
     except Exception as e:
-        logger.error(f"Erro na extração ao vivo do AliExpress: {e}")
+        logger.error(f"Erro na extração do AliExpress para {query}: {e}")
         return []
 
-def run_extraction(search_term="Mechanical Keyboard"):
+def run_extraction():
     os.makedirs(RAW_DATA_DIR, exist_ok=True)
     
     all_data = []
-    all_data.extend(extract_amazon_eu(search_term))
-    all_data.extend(extract_aliexpress_eu(search_term))
+    request_counter = 0
+
+    # Itera sobre o dicionário de categorias e suas respectivas queries de busca
+    for category, queries in TARGET_CATEGORIES.items():
+        for query in queries:
+            logger.info(f"Processando lote -> Categoria: {category} | Query: {query}")
+            
+            amazon_results = extract_amazon_eu(query, category)
+            request_counter += 1
+            
+            aliexpress_results = extract_aliexpress_eu(query, category)
+            request_counter += 1
+            
+            all_data.extend(amazon_results)
+            all_data.extend(aliexpress_results)
     
     if not all_data:
         logger.warning("Nenhum dado foi extraído de nenhuma das fontes.")
@@ -162,7 +180,7 @@ def run_extraction(search_term="Mechanical Keyboard"):
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(all_data, f, indent=4, ensure_ascii=False)
         
-    logger.info(f"Snapshot salvo em {file_path} com {len(all_data)} registros no total.")
+    logger.info(f"Snapshot salvo em {file_path} com {len(all_data)} registros no total. Requisições gastas nesta execução: {request_counter}.")
     return all_data
 
 if __name__ == "__main__":

@@ -57,3 +57,19 @@
 2026-08-05 13:24:49,174 [INFO] ETL_Config: Lendo o arquivo processado mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260805_131025.json
 2026-08-05 13:24:49,201 [INFO] ETL_Config: Schema do banco verificado/criado com sucesso.
 2026-08-05 13:24:49,217 [INFO] ETL_Config: Sucesso! 36 produtos upsertados no PostgreSQL.
+2026-08-06 11:42:20,790 [INFO] ETL_Extract: Processando lote -> Categoria: Keyboard | Query: Mechanical Keyboard
+2026-08-06 11:42:20,791 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' (Categoria: Keyboard) na Amazon EU via RapidAPI...
+2026-08-06 11:42:22,775 [INFO] ETL_Extract: Amazon EU (Keyboard): 16 itens obtidos.
+2026-08-06 11:42:22,776 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' (Categoria: Keyboard) no AliExpress DE...
+2026-08-06 11:42:25,041 [INFO] ETL_Extract: AliExpress (Keyboard): 20 produtos obtidos.
+2026-08-06 11:42:25,042 [INFO] ETL_Extract: Processando lote -> Categoria: Mouse | Query: Gaming Mouse
+2026-08-06 11:42:25,043 [INFO] ETL_Extract: Buscando 'Gaming Mouse' (Categoria: Mouse) na Amazon EU via RapidAPI...
+2026-08-06 11:42:27,951 [INFO] ETL_Extract: Amazon EU (Mouse): 16 itens obtidos.
+2026-08-06 11:42:27,952 [INFO] ETL_Extract: Buscando 'Gaming Mouse' (Categoria: Mouse) no AliExpress DE...
+2026-08-06 11:42:29,240 [INFO] ETL_Extract: AliExpress (Mouse): 19 produtos obtidos.
+2026-08-06 11:42:29,242 [INFO] ETL_Extract: Processando lote -> Categoria: Monitor | Query: Gaming Monitor
+2026-08-06 11:42:29,242 [INFO] ETL_Extract: Buscando 'Gaming Monitor' (Categoria: Monitor) na Amazon EU via RapidAPI...
+2026-08-06 11:42:39,436 [INFO] ETL_Extract: Amazon EU (Monitor): 16 itens obtidos.
+2026-08-06 11:42:39,437 [INFO] ETL_Extract: Buscando 'Gaming Monitor' (Categoria: Monitor) no AliExpress DE...
+2026-08-06 11:42:40,607 [INFO] ETL_Extract: AliExpress (Monitor): 20 produtos obtidos.
+2026-08-06 11:42:40,611 [INFO] ETL_Extract: Snapshot salvo em /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/raw/raw_products_20260806_114240.json com 107 registros no total. Requisições gastas nesta execução: 6.
