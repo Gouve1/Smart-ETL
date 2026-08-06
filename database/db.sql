@@ -14,7 +14,7 @@ CREATE TABLE categories (
 
 -- 2. Canonical Products
 CREATE TABLE products (
-    product_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    product_id VARCHAR(255) PRIMARY KEY,
     category_id UUID NOT NULL REFERENCES categories(category_id) ON DELETE CASCADE,
     canonical_name VARCHAR(255) NOT NULL,
     brand VARCHAR(100) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE products (
 -- 3. Source/API Identifiers Mapping (Cross-Matching)
 CREATE TABLE product_cross_mappings (
     mapping_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    product_id UUID NOT NULL REFERENCES products(product_id) ON DELETE CASCADE,
+    product_id VARCHAR(255) NOT NULL REFERENCES products(product_id) ON DELETE CASCADE,
     source_platform VARCHAR(50) NOT NULL, 
     external_id VARCHAR(100) NOT NULL,   -- Amazon ASIN, AliExpress ItemID
     product_url TEXT,
@@ -38,7 +38,7 @@ CREATE TABLE product_cross_mappings (
 -- 4. Historical Price Snapshots (Time-Series Table)
 CREATE TABLE price_snapshots (
     snapshot_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    product_id UUID NOT NULL REFERENCES products(product_id) ON DELETE CASCADE,
+    product_id VARCHAR(255) NOT NULL REFERENCES products(product_id) ON DELETE CASCADE,
     source_platform VARCHAR(50) NOT NULL,
     price_eur DECIMAL(10, 2) NOT NULL,
     shipping_cost_eur DECIMAL(10, 2) DEFAULT 0.00,
@@ -51,7 +51,7 @@ CREATE TABLE price_snapshots (
 -- 5. Seller Metrics & Offers
 CREATE TABLE seller_metrics (
     metric_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    product_id UUID NOT NULL REFERENCES products(product_id) ON DELETE CASCADE,
+    product_id VARCHAR(255) NOT NULL REFERENCES products(product_id) ON DELETE CASCADE,
     source_platform VARCHAR(50) NOT NULL,
     seller_name VARCHAR(255),
     seller_rating DECIMAL(5, 2),

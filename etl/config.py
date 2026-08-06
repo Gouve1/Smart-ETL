@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-# Configuração do Logger unificado
 LOG_DIR = os.path.join(os.path.dirname(__file__), "..", "logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 
@@ -25,7 +24,7 @@ class Config:
     DB_PASSWORD = os.getenv("POSTGRES_PASSWORD", "postgrespassword")
     DB_HOST = os.getenv("POSTGRES_HOST", "localhost")
     DB_PORT = os.getenv("POSTGRES_PORT", "5432")
-    DB_NAME = os.getenv("POSTGRES_DB", "market_intelligence")
+    DB_NAME = os.getenv("POSTGRES_DB", "smart_etl")
     
     DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
