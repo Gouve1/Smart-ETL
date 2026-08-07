@@ -13,16 +13,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ETL_Transform")
 
-# Raiz do projeto (smart-etl)
+# Project root directory (smart-etl)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def load_brand_map() -> Dict[str, str]:
-    """Carrega o dicionário de padronização de marcas O(1)."""
+    """Loads the O(1) brand normalization dictionary."""
     taxonomy_path = os.path.join(BASE_DIR, "config", "taxonomy.json")
     if not os.path.exists(taxonomy_path):
         logger.warning(
-            f"Taxonomia não encontrada em {taxonomy_path}. Mapeamento vazio."
+            f"Taxonomy not found at {taxonomy_path}. Empty mapping returned."
         )
         return {}
 
@@ -50,17 +50,17 @@ class ProductTransformer:
         self.brand_map = brand_map
 
         if self.brand_map:
-            # Ordena aliases do MAIOR para o MENOR comprimento (Longest Match First)
+            # Sort aliases from LONGEST to SHORTEST (Longest Match First)
             sorted_aliases = sorted(
                 self.brand_map.keys(), key=len, reverse=True
             )
 
-            # Padrão Regex único com boundary estrito \b
+            # Single Regex pattern with strict word boundary \b
             pattern = (
                 r"\b(" + "|".join(re.escape(a) for a in sorted_aliases) + r")\b"
             )
 
-            # Compilação única em C engine na memória
+            # Single compilation in C engine memory
             self.brand_regex = re.compile(pattern, re.IGNORECASE)
         else:
             self.brand_regex = None
@@ -76,13 +76,13 @@ class ProductTransformer:
         if not self.brand_regex:
             return None
 
-        # 1. Busca no Título
+        # 1. Search in Title
         match = self.brand_regex.search(title)
         if match:
             matched_alias = match.group(1).lower()
             return self.brand_map.get(matched_alias)
 
-        # 2. Busca no Nome do Vendedor (se não for genérico)
+        # 2. Search in Seller Name (if not generic)
         if seller_name and seller_name.lower() not in [
             "amazon merchant",
             "aliexpress merchant",
@@ -148,7 +148,7 @@ class ProductTransformer:
 def run_pipeline():
     raw_dir = os.path.join(BASE_DIR, "data", "raw")
     if not os.path.exists(raw_dir):
-        logger.error(f"Diretório data/raw não encontrado em: {raw_dir}")
+        logger.error(f"Raw data directory not found at: {raw_dir}")
         return
 
     raw_files = [
@@ -158,17 +158,17 @@ def run_pipeline():
     ]
 
     if not raw_files:
-        logger.error("Nenhum arquivo raw_products_*.json encontrado em data/raw!")
+        logger.error("No raw_products_*.json files found in data/raw!")
         return
 
     latest_file = max(raw_files, key=os.path.getctime)
-    logger.info(f"Processando o arquivo bruto mais recente: {latest_file}")
+    logger.info(f"Processing latest raw file: {latest_file}")
 
     with open(latest_file, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
 
     brand_map = load_brand_map()
-    logger.info(f"Taxonomia carregada com {len(brand_map)} termos/aliases.")
+    logger.info(f"Taxonomy loaded with {len(brand_map)} terms/aliases.")
 
     transformer = ProductTransformer(brand_map)
     transformed_data = [transformer.transform(item) for item in raw_data]
@@ -184,7 +184,7 @@ def run_pipeline():
         json.dump(transformed_data, f, indent=2, ensure_ascii=False)
 
     logger.info(
-        f"Transformação concluída! {len(transformed_data)} itens persistidos em {output_path}"
+        f"Transformation completed! {len(transformed_data)} items persisted to {output_path}"
     )
 
 
