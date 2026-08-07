@@ -547,3 +547,104 @@ DETAIL:  Key (product_id)=(amazon_b0ddt8yrwt) is not present in table "products"
 2026-08-06 12:33:31,919 [INFO] ETL_Config: Lendo o arquivo processado mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260806_115518.json
 2026-08-06 12:33:31,940 [INFO] ETL_Config: Schema relacional do banco verificado/criado com sucesso.
 2026-08-06 12:33:32,181 [INFO] ETL_Config: Sucesso! 107 registros processados e distribuídos nas tabelas relacionais do PostgreSQL.
+2026-08-07 10:54:02,834 [INFO] ETL_Orchestrator: ==================================================
+2026-08-07 10:54:02,837 [INFO] ETL_Orchestrator: Starting ETL Pipeline 
+2026-08-07 10:54:02,837 [INFO] ETL_Orchestrator: ==================================================
+2026-08-07 10:54:02,837 [INFO] ETL_Orchestrator: Step 1/4: Checking database connection...
+2026-08-07 10:54:02,853 [INFO] ETL_Config: Conexão com o PostgreSQL realizada com sucesso!
+2026-08-07 10:54:02,853 [INFO] ETL_Orchestrator: Step 2/4: Running Extraction...
+2026-08-07 10:54:02,853 [INFO] ETL_Extract: Processando lote -> Categoria: Keyboard | Query: Mechanical Keyboard
+2026-08-07 10:54:02,853 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' (Categoria: Keyboard) na Amazon EU via RapidAPI...
+2026-08-07 10:54:04,791 [INFO] ETL_Extract: Amazon EU (Keyboard): 16 itens obtidos.
+2026-08-07 10:54:04,792 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' (Categoria: Keyboard) no AliExpress DE...
+2026-08-07 10:54:06,610 [INFO] ETL_Extract: AliExpress (Keyboard): 20 produtos obtidos.
+2026-08-07 10:54:06,611 [INFO] ETL_Extract: Processando lote -> Categoria: Mouse | Query: Gaming Mouse
+2026-08-07 10:54:06,612 [INFO] ETL_Extract: Buscando 'Gaming Mouse' (Categoria: Mouse) na Amazon EU via RapidAPI...
+2026-08-07 10:54:08,731 [INFO] ETL_Extract: Amazon EU (Mouse): 16 itens obtidos.
+2026-08-07 10:54:08,732 [INFO] ETL_Extract: Buscando 'Gaming Mouse' (Categoria: Mouse) no AliExpress DE...
+2026-08-07 10:54:10,005 [INFO] ETL_Extract: AliExpress (Mouse): 19 produtos obtidos.
+2026-08-07 10:54:10,007 [INFO] ETL_Extract: Processando lote -> Categoria: Monitor | Query: Gaming Monitor
+2026-08-07 10:54:10,007 [INFO] ETL_Extract: Buscando 'Gaming Monitor' (Categoria: Monitor) na Amazon EU via RapidAPI...
+2026-08-07 10:54:12,213 [INFO] ETL_Extract: Amazon EU (Monitor): 16 itens obtidos.
+2026-08-07 10:54:12,214 [INFO] ETL_Extract: Buscando 'Gaming Monitor' (Categoria: Monitor) no AliExpress DE...
+2026-08-07 10:54:13,310 [INFO] ETL_Extract: AliExpress (Monitor): 20 produtos obtidos.
+2026-08-07 10:54:13,314 [INFO] ETL_Extract: Snapshot salvo em /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/raw/raw_products_20260807_105413.json com 107 registros no total. Requisições gastas nesta execução: 6.
+2026-08-07 10:54:13,314 [INFO] ETL_Orchestrator: Extraction completed successfully.
+2026-08-07 10:54:13,315 [INFO] ETL_Orchestrator: Step 3/4: Running Transformation...
+2026-08-07 10:54:13,315 [ERROR] ETL_Orchestrator: ❌ Critical error during ETL execution: name 'run_transformer' is not defined
+2026-08-07 10:55:03,920 [INFO] ETL_Orchestrator: ==================================================
+2026-08-07 10:55:03,920 [INFO] ETL_Orchestrator: Starting ETL Pipeline 
+2026-08-07 10:55:03,920 [INFO] ETL_Orchestrator: ==================================================
+2026-08-07 10:55:03,920 [INFO] ETL_Orchestrator: Step 1/4: Checking database connection...
+2026-08-07 10:55:03,928 [INFO] ETL_Config: Conexão com o PostgreSQL realizada com sucesso!
+2026-08-07 10:55:03,928 [INFO] ETL_Orchestrator: Step 2/4: Running Extraction...
+2026-08-07 10:55:03,928 [INFO] ETL_Extract: Processando lote -> Categoria: Keyboard | Query: Mechanical Keyboard
+2026-08-07 10:55:03,928 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' (Categoria: Keyboard) na Amazon EU via RapidAPI...
+2026-08-07 10:55:05,973 [INFO] ETL_Extract: Amazon EU (Keyboard): 16 itens obtidos.
+2026-08-07 10:55:05,975 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' (Categoria: Keyboard) no AliExpress DE...
+2026-08-07 10:55:06,302 [INFO] ETL_Extract: AliExpress (Keyboard): 20 produtos obtidos.
+2026-08-07 10:55:06,303 [INFO] ETL_Extract: Processando lote -> Categoria: Mouse | Query: Gaming Mouse
+2026-08-07 10:55:06,304 [INFO] ETL_Extract: Buscando 'Gaming Mouse' (Categoria: Mouse) na Amazon EU via RapidAPI...
+2026-08-07 10:55:08,123 [INFO] ETL_Extract: Amazon EU (Mouse): 16 itens obtidos.
+2026-08-07 10:55:08,124 [INFO] ETL_Extract: Buscando 'Gaming Mouse' (Categoria: Mouse) no AliExpress DE...
+2026-08-07 10:55:08,492 [INFO] ETL_Extract: AliExpress (Mouse): 19 produtos obtidos.
+2026-08-07 10:55:08,493 [INFO] ETL_Extract: Processando lote -> Categoria: Monitor | Query: Gaming Monitor
+2026-08-07 10:55:08,494 [INFO] ETL_Extract: Buscando 'Gaming Monitor' (Categoria: Monitor) na Amazon EU via RapidAPI...
+2026-08-07 10:55:10,377 [INFO] ETL_Extract: Amazon EU (Monitor): 16 itens obtidos.
+2026-08-07 10:55:10,379 [INFO] ETL_Extract: Buscando 'Gaming Monitor' (Categoria: Monitor) no AliExpress DE...
+2026-08-07 10:55:10,704 [INFO] ETL_Extract: AliExpress (Monitor): 20 produtos obtidos.
+2026-08-07 10:55:10,709 [INFO] ETL_Extract: Snapshot salvo em /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/raw/raw_products_20260807_105510.json com 107 registros no total. Requisições gastas nesta execução: 6.
+2026-08-07 10:55:10,709 [INFO] ETL_Orchestrator: Extraction completed successfully.
+2026-08-07 10:55:10,709 [INFO] ETL_Orchestrator: Step 3/4: Running Transformation...
+2026-08-07 10:55:10,710 [INFO] ETL_Transform: Processando o arquivo bruto mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/raw/raw_products_20260807_105510.json
+2026-08-07 10:55:10,713 [INFO] ETL_Transform: Taxonomia carregada com 59 termos/aliases.
+2026-08-07 10:55:10,721 [INFO] ETL_Transform: Transformação concluída! 107 itens persistidos em /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260807_105510.json
+2026-08-07 10:55:10,721 [INFO] ETL_Orchestrator: Transformation completed. Processed file: None
+2026-08-07 10:55:10,721 [INFO] ETL_Orchestrator: Step 4/4: Running Relational Database Load...
+2026-08-07 10:55:10,721 [INFO] ETL_Config: Lendo o arquivo processado mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260807_105510.json
+2026-08-07 10:55:10,748 [INFO] ETL_Config: Schema relacional do banco verificado/criado com sucesso.
+2026-08-07 10:55:10,787 [ERROR] ETL_Config: Erro na carga relacional do banco: cannot access local variable 'uuid' where it is not associated with a value
+Traceback (most recent call last):
+  File "/home/pedro-pc/Prog/Projects/smart-etl/etl/load.py", line 207, in run_loader
+    count = load_products_relational(session, data)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pedro-pc/Prog/Projects/smart-etl/etl/load.py", line 151, in load_products_relational
+    snapshot_id=str(uuid.uuid4()),
+                    ^^^^
+UnboundLocalError: cannot access local variable 'uuid' where it is not associated with a value
+2026-08-07 10:55:10,789 [ERROR] ETL_Orchestrator: ❌ Critical error during ETL execution: cannot access local variable 'uuid' where it is not associated with a value
+2026-08-07 10:56:58,807 [INFO] ETL_Orchestrator: ==================================================
+2026-08-07 10:56:58,807 [INFO] ETL_Orchestrator: Starting ETL Pipeline 
+2026-08-07 10:56:58,807 [INFO] ETL_Orchestrator: ==================================================
+2026-08-07 10:56:58,807 [INFO] ETL_Orchestrator: Step 1/4: Checking database connection...
+2026-08-07 10:56:58,820 [INFO] ETL_Config: Conexão com o PostgreSQL realizada com sucesso!
+2026-08-07 10:56:58,820 [INFO] ETL_Orchestrator: Step 2/4: Running Extraction...
+2026-08-07 10:56:58,821 [INFO] ETL_Extract: Processando lote -> Categoria: Keyboard | Query: Mechanical Keyboard
+2026-08-07 10:56:58,821 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' (Categoria: Keyboard) na Amazon EU via RapidAPI...
+2026-08-07 10:57:00,579 [INFO] ETL_Extract: Amazon EU (Keyboard): 16 itens obtidos.
+2026-08-07 10:57:00,580 [INFO] ETL_Extract: Buscando 'Mechanical Keyboard' (Categoria: Keyboard) no AliExpress DE...
+2026-08-07 10:57:00,924 [INFO] ETL_Extract: AliExpress (Keyboard): 20 produtos obtidos.
+2026-08-07 10:57:00,925 [INFO] ETL_Extract: Processando lote -> Categoria: Mouse | Query: Gaming Mouse
+2026-08-07 10:57:00,925 [INFO] ETL_Extract: Buscando 'Gaming Mouse' (Categoria: Mouse) na Amazon EU via RapidAPI...
+2026-08-07 10:57:03,119 [INFO] ETL_Extract: Amazon EU (Mouse): 16 itens obtidos.
+2026-08-07 10:57:03,121 [INFO] ETL_Extract: Buscando 'Gaming Mouse' (Categoria: Mouse) no AliExpress DE...
+2026-08-07 10:57:03,453 [INFO] ETL_Extract: AliExpress (Mouse): 19 produtos obtidos.
+2026-08-07 10:57:03,454 [INFO] ETL_Extract: Processando lote -> Categoria: Monitor | Query: Gaming Monitor
+2026-08-07 10:57:03,454 [INFO] ETL_Extract: Buscando 'Gaming Monitor' (Categoria: Monitor) na Amazon EU via RapidAPI...
+2026-08-07 10:57:05,456 [INFO] ETL_Extract: Amazon EU (Monitor): 16 itens obtidos.
+2026-08-07 10:57:05,458 [INFO] ETL_Extract: Buscando 'Gaming Monitor' (Categoria: Monitor) no AliExpress DE...
+2026-08-07 10:57:05,800 [INFO] ETL_Extract: AliExpress (Monitor): 20 produtos obtidos.
+2026-08-07 10:57:05,804 [INFO] ETL_Extract: Snapshot salvo em /home/pedro-pc/Prog/Projects/smart-etl/etl/../data/raw/raw_products_20260807_105705.json com 107 registros no total. Requisições gastas nesta execução: 6.
+2026-08-07 10:57:05,804 [INFO] ETL_Orchestrator: Extraction completed successfully.
+2026-08-07 10:57:05,804 [INFO] ETL_Orchestrator: Step 3/4: Running Transformation...
+2026-08-07 10:57:05,804 [INFO] ETL_Transform: Processando o arquivo bruto mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/raw/raw_products_20260807_105705.json
+2026-08-07 10:57:05,805 [INFO] ETL_Transform: Taxonomia carregada com 59 termos/aliases.
+2026-08-07 10:57:05,813 [INFO] ETL_Transform: Transformação concluída! 107 itens persistidos em /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260807_105705.json
+2026-08-07 10:57:05,813 [INFO] ETL_Orchestrator: Transformation completed. Processed file: None
+2026-08-07 10:57:05,813 [INFO] ETL_Orchestrator: Step 4/4: Running Relational Database Load...
+2026-08-07 10:57:05,813 [INFO] ETL_Config: Lendo o arquivo processado mais recente: /home/pedro-pc/Prog/Projects/smart-etl/data/processed/processed_products_20260807_105705.json
+2026-08-07 10:57:05,837 [INFO] ETL_Config: Schema relacional do banco verificado/criado com sucesso.
+2026-08-07 10:57:06,571 [INFO] ETL_Config: Sucesso! 107 registros processados e distribuídos nas tabelas relacionais do PostgreSQL.
+2026-08-07 10:57:06,571 [INFO] ETL_Orchestrator: ==================================================
+2026-08-07 10:57:06,571 [INFO] ETL_Orchestrator: ETL Pipeline completed 
+2026-08-07 10:57:06,571 [INFO] ETL_Orchestrator: ==================================================

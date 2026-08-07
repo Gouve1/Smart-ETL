@@ -10,7 +10,7 @@ from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import declarative_base, relationship
 
 # Importa a engine e a sessão prontas do seu config.py
-from config import engine, SessionLocal, logger
+from etl.config import engine, SessionLocal, logger
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 Base = declarative_base()
@@ -95,7 +95,7 @@ def load_products_relational(session, products_data: List[Dict[str, Any]]) -> in
         # Verifica se a categoria já existe na sessão
         cat_obj = session.query(CategoryModel).filter_by(slug=category_slug).first()
         if not cat_obj:
-            import uuid
+            
             cat_obj = CategoryModel(
                 category_id=str(uuid.uuid4()),
                 name=category_name,
@@ -107,7 +107,7 @@ def load_products_relational(session, products_data: List[Dict[str, Any]]) -> in
 
         # 2. Tratar Produto Canônico (products)
         # Usamos o product_id gerado no transform como base ou geramos um UUID consistente
-        import uuid
+        
         prod_id = item.get("product_id") # Ex: hash MD5 ou ID customizado
         
         product_obj = session.query(ProductModel).filter_by(product_id=prod_id).first()
